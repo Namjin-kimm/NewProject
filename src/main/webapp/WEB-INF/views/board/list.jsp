@@ -85,5 +85,7 @@
             </nav>
         </div>
 
+        <a type="button" class="btn btn-primary" href="/board/add">글쓰기</a>
+
 </body>
 </html>
