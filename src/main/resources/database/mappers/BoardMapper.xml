@@ -29,7 +29,16 @@
 			LIMIT #{startRow}, #{perPage}
 		</select>
 		
-		<!-- <resultMap type="BoardVO" id="getList">
+		<select id="getDetail" parameterType="BoardVO" resultMap="getDetailResult">
+			SELECT * FROM 
+			QNA Q
+			INNER JOIN
+			QNAFILES QF 
+			ON Q.NUM = QF.NUM 
+			WHERE Q.NUM = #{num};
+		</select>
+		
+		<resultMap type="BoardVO" id="getDetailResult">
 			<id column="NUM" property="num"/>
 			<result column="WRITER" property="writer"/>
 			<result column="TITLE" property="title"/>
@@ -39,18 +48,26 @@
 			<result column="REF" property="ref"/>
 			<result column="STEP" property="step"/>
 			<result column="DEPTH" property="depth"/>
-			<collection property="">
-			
+			<collection property="boardFileVOs" javaType="List" ofType="BoardFileVO">
+				<id column="FILENUM" property="fileNum"/>
+				<id column="NUM" property="num"/>
+				<id column="FILENAME" property="fileName"/>
+				<id column="ORINAME" property="oriName"/>
 			</collection>
-		</resultMap> -->
+		</resultMap>
 		
-		<insert id="setAdd" parameterType="BoardVO">
+		<insert id="setAdd" parameterType="BoardVO" useGeneratedKeys="true" keyProperty="num">
 			INSERT INTO QNA (NUM, WRITER, TITLE, CONTENTS, HIT, REGDATE, REF, STEP, DEPTH)
-			VALUES (NULL, #{writer}, #{title}, #{contents}, 0, SYSDATE(), 0, 0, 0)
+			VALUES (#{num}, #{writer}, #{title}, #{contents}, 0, SYSDATE(), 0, 0, 0)
 		</insert>
 		
 		<insert id="setAddFile" parameterType="BoardFileVO">
 			INSERT INTO QNAFILES (FILENUM, NUM, FILENAME, ORINAME)
 			VALUES (NULL, #{num}, #{fileName}, #{oriName})
 		</insert>
+		
+		<select id="getFileDetail" parameterType="BoardFileVO" resultType="BoardFileVO">
+			SELECT * FROM QNAFILES
+			WHERE FILENUM = #{fileNum}
+		</select>
 	</mapper>

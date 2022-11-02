@@ -54,5 +54,14 @@ public class BoardController {
 		mv.setViewName("redirect:./list");
 		return mv;
 	}
+	
+	@GetMapping("detail")
+	public ModelAndView getDetail(BoardVO boardVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardVO = boardService.getDetail(boardVO);
+		mv.addObject("vo", boardVO);
+		mv.setViewName("board/detail");
+		return mv;
+	}
 
 }

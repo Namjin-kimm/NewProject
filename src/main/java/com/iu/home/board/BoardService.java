@@ -25,6 +25,7 @@ public class BoardService {
 	@Value("${app.upload.board}")
 	private String path;
 	
+	//List 불러오기
 	public List<BoardVO> getList(Pager pager)throws Exception{
 		Long totalCount = boardMapper.getCount(pager);
 		pager.getRowNum();
@@ -34,6 +35,7 @@ public class BoardService {
 		return ar;
 	}
 	
+	//글쓰기
 	public int setAdd(BoardVO boardVO)throws Exception{
 		int result = boardMapper.setAdd(boardVO);
 		
@@ -55,6 +57,12 @@ public class BoardService {
 		}
 		
 		return result;
+	}
+	
+	//Detail 불러오기
+	public BoardVO getDetail(BoardVO boardVO)throws Exception{
+		boardVO = boardMapper.getDetail(boardVO);
+		return boardVO;
 	}
 
 }

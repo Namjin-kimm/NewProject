@@ -46,7 +46,7 @@
                 <tbody>
                     <c:forEach items="${list}" var="vo">
                         <tr>
-                            <td>${vo.num}</td>
+                            <td><a href="./detail?num=${vo.num}">${vo.num}</a></td>
                             <td>${vo.writer}</td>
                             <td>${vo.title}</td>
                             <td>${vo.contents}</td>

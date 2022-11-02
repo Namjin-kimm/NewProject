@@ -19,5 +19,11 @@ public interface BoardMapper {
 	
 	//파일 추가
 	public int setAddFile(BoardFileVO boardFileVO)throws Exception;
+	
+	//Detail 불러오기
+	public BoardVO getDetail(BoardVO boardVO)throws Exception;
+	
+	//파일 상세정보 불러오기
+	public BoardFileVO getFileDetail(BoardFileVO boardFileVO)throws Exception;
 
 }
