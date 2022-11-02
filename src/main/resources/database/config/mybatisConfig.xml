@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="com.iu.home.board.BoardVO" alias="BoardVO"/>
 		<typeAlias type="com.iu.home.util.Pager" alias="Pager"/>
+		<typeAlias type="com.iu.home.board.BoardFileVO" alias="BoardFileVO"/>
 		
 		<typeAlias type="java.lang.String" alias="String"/>
 		<typeAlias type="java.lang.Long" alias="Long"/>

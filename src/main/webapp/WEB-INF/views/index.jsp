@@ -12,6 +12,7 @@
 <body>
 	<h1>Index page</h1>
 	<a type="button" class="btn btn-primary" href="/board/list">리스트</a>
+	<a type="button" class="btn btn-primary" href="/board/add">글쓰기</a>
 
 </body>
 </html>

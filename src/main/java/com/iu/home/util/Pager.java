@@ -19,6 +19,20 @@ public class Pager {
 	//종류(writer, title, contents)
 	private String select;
 	
+	public String getSelect() {
+		if(this.select == null) {
+			this.select = "contents";
+		}
+		return this.select;
+	}
+	
+	public String getSearch() {
+		if(this.search == null) {
+			this.search = "";
+		}
+		return this.search;
+	}
+	
 	public Long getPage() {
 		if(this.page == null || this.page < 1) {
 			this.page = 1L;
@@ -33,6 +47,11 @@ public class Pager {
 		return this.perPage;
 	}
 	
+	private Long getPerBlock() {
+		this.perBlock = 5L;
+		return this.perBlock;
+	}
+	
 	//RowNum 구하기,mapper에서 사용할 값
 	public void getRowNum() {
 		this.startRow = (this.getPage() - 1)* this.getPerPage();
@@ -43,7 +62,7 @@ public class Pager {
 		//1. totalCount로 totalPage 구하기
 		Long totalPage = totalCount/this.getPerPage();
 		if(totalCount%this.getPerPage() != 0) {
-			totalCount++;
+			totalPage++;
 		}
 		
 		//1-1. totalPage보다 getPage가 더 클 경우

@@ -21,7 +21,7 @@
 			WHERE
 				<choose>
 					<when test="select == 'writer'">WRITER</when>
-					<when test="select == title">TITLE</when>
+					<when test="select == 'title'">TITLE</when>
 					<otherwise>CONTENTS</otherwise>
 				</choose>
 			LIKE CONCAT('%',#{search},'%')
@@ -43,4 +43,14 @@
 			
 			</collection>
 		</resultMap> -->
+		
+		<insert id="setAdd" parameterType="BoardVO">
+			INSERT INTO QNA (NUM, WRITER, TITLE, CONTENTS, HIT, REGDATE, REF, STEP, DEPTH)
+			VALUES (NULL, #{writer}, #{title}, #{contents}, 0, SYSDATE(), 0, 0, 0)
+		</insert>
+		
+		<insert id="setAddFile" parameterType="BoardFileVO">
+			INSERT INTO QNAFILES (FILENUM, NUM, FILENAME, ORINAME)
+			VALUES (NULL, #{num}, #{fileName}, #{oriName})
+		</insert>
 	</mapper>

@@ -1,6 +1,9 @@
 package com.iu.home.board;
 
 import java.sql.Date;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
 
@@ -16,6 +19,9 @@ public class BoardVO {
 	private Long ref;
 	private Long step;
 	private Long depth;
+	
+	private List<BoardFileVO> boardFileVOs;
+	private MultipartFile[] files;
 	
 
 }
