@@ -22,7 +22,7 @@ public class BoardService {
 	@Autowired
 	private FileManager fileManager;
 	
-	@Value("${app.upload.qna}")
+	@Value("${app.upload.board}")
 	private String path;
 	
 	public List<BoardVO> getList(Pager pager)throws Exception{

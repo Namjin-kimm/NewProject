@@ -22,12 +22,14 @@ let contentsResult = false;
 $("#writer").blur(function(){
     let writer = $("#writer").val();
     writerResult = nullCheck(writer, $("#writerm"), $("#writerm2"), "작성자");
+    console.log("writerResult :", writerResult);
     results[0] = writerResult;
 })
 
 $("#title").blur(function(){
     let title = $("#title").val();
     titleResult = nullCheck(title, $("#titlem"), $("#titlem2"), "제목");
+    console.log("titleResult : ", titleResult);
     results[1] = titleResult;
 })
 
@@ -35,11 +37,14 @@ $(".note-editable").blur(function(){
     let contents = $(".note-editable").text();
     console.log(contents == null || contents == "");
     contentsResult = nullCheck(contents, $("#contentsm"), $("#contentsm2"), "내용");
+    console.log("contents :", contentsResult);
     results[2] = contentsResult;
+    console.log("results :",results.includes(false));
 })
 
+
 $("#submitBtn").click(function(){
-    if(results.includes("false")){
+    if(results.includes(false)){
         alert("입력 조건을 지켜주세요");
     }else{
         alert("전송");
