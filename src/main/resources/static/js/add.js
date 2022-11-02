@@ -33,7 +33,7 @@ $("#title").blur(function(){
 
 $(".note-editable").blur(function(){
     let contents = $(".note-editable").text();
-    console.log(contents = null || contents == "");
+    console.log(contents == null || contents == "");
     contentsResult = nullCheck(contents, $("#contentsm"), $("#contentsm2"), "내용");
     results[2] = contentsResult;
 })
