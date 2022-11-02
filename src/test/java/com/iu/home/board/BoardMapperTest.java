@@ -12,7 +12,7 @@ class BoardMapperTest {
 	@Autowired
 	private BoardMapper boardMapper;
 
-	@Test
+//	@Test
 	void insertTest()throws Exception {
 		BoardVO boardVO = new BoardVO();
 		for(int i = 0; i <= 100; i++) {
